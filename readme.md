@@ -28,7 +28,7 @@ $ node server
 
 * [handler.js](https://github.com/Gabitox/tateti_server/blob/master/errors/handlers.js) : Contiene al error handler que manejará todas las excepciones de la app.
 
-* [https://github.com/Gabitox/tateti_server/tree/master/controllers](/controllers): Aquí se guardan todas los controladores de la aplicación.
+* [/controllers](https://github.com/Gabitox/tateti_server/tree/master/controllers): Aquí se guardan todas los controladores de la aplicación.
 
 ## TODO:
 
