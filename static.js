@@ -2,7 +2,7 @@ const fs = require('fs')
 const mime = require('mime-types')
 const path = require('path')
 const url = require("url")
-const allowedPath ="C:\\nodejs\\tateti_server\\static"
+const allowedPath =__dirname+"\\static"
 const errors = require('./errors')
 /*
 *	Módulo que sirve el contenido estático de la app.
@@ -15,10 +15,12 @@ const errors = require('./errors')
 
 async function serve(request , response){
 	return new Promise((resolve, reject)=>{
+		console.log(allowedPath)
 
 		var urlPath=url.parse(request.url).pathname
 
-		var localPath = path.resolve("C:/nodejs/tateti_server/static/"+urlPath)
+		var localPath = path.resolve(__dirname+"/static/"+urlPath)
+		console.log(localPath)
 		//Verifico que el path absoluto que resuelve node esté dentro de la carpeta permitida.
 		if(localPath.indexOf(allowedPath)!==0){
 			//TODO error
