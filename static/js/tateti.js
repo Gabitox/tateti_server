@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", function(){
 	playerContainer=document.getElementById("player-container");
 	if(!gameID){
 		gameID = uniqCode(16)
-		console.log(gameID)
 	}
+	document.getElementById("plays-link")
+			.setAttribute("href","/show?id="+gameID)
 	init();
 });
 

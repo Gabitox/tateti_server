@@ -2,7 +2,7 @@ const fs = require('fs')
 const mime = require('mime-types')
 const path = require('path')
 const url = require("url")
-const allowedPath =__dirname+"\\static"
+const allowedPath =__dirname+path.sep+"static"
 const errors = require('./errors')
 /*
 *	Módulo que sirve el contenido estático de la app.

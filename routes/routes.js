@@ -5,7 +5,8 @@ let controllers = require('../controllers')
 const routes={
 		"/": {"GET": controllers.tatetiController.index},
 		"/store": {"POST": controllers.tatetiController.store},
-		"/test":{"GET":controllers.tatetiController.test}
+		"/test":{"GET":controllers.tatetiController.test},
+		"/show":{"GET":controllers.tatetiController.show}
 
 }
 exports.routes = routes;

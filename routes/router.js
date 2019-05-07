@@ -14,7 +14,6 @@ const url = require("url")
 		path = path.substr(0,path.length-1)
 	}
 	console.log(path)
-
 	console.log(path)
 	console.log(method)
 	console.log(typeof(method))
