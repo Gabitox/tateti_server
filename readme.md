@@ -30,6 +30,22 @@ $ node server
 
 * [/controllers](https://github.com/Gabitox/tateti_server/tree/master/controllers): Aquí se guardan todas los controladores de la aplicación.
 
+* [/daos](https://github.com/Gabitox/tateti_server/tree/master/daos): Aquí se guardarán los daos, clases que sirven para almacenar en memoria el estado de la partida.
+
+
+## Guardado de partida en memoria y visualización de jugadas:
+Se agregó la funcionalidad pedida como tarea. La lógica es: 
+1. generar un código alfanumérico aleatorio en el cliente que inicia una partida, con muy baja probabilidad de colisionar o repetirse en otro cliente.
+2. Por cada jugada, enviar un json al endpoint */store* con la siguiente información:
+  * array del tablero.
+  * tiempo.
+  * id del cliente generada en (1).
+3. El dao de board guardará esa jugada en un diccionario clave-valor, con el id generado en (1) como clave y un arreglo de jugadas como valor. Así permitimos tener varios clientes jugando de manera concurrente. Cada vez que llega una nueva partida para un cliente, se ordena automáticamente por el valor del campo *tiempo*. Esto permite no alterar el orden de jugadas en casos de lag de red. 
+4. Si el envío falla por problemas de red, el cliente tateti.js seguirá intentando enviar las jugadas que no se enviaron cada 1 segundo.
+5. Las partidas se muestran en el endpoint */show* , pasando el id de cliente como parámetro en la query.
+
 ## TODO:
 
 Queda por terminar el mostrar un cartel popup cuando uno de los jugadores gana y un botón Reset en el front.
+
+Validaciones.
